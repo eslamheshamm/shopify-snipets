@@ -1,0 +1,140 @@
+<section class="pdp-dimensions page-width">
+  <div class="pdp-btf-section-title">
+    <h2>Dimensions</h2>
+  </div>
+  <div class="pdp-btf-section-wrapper">
+    <div class="pdp-dimensions-measurements">
+      {%if product.metafields.my_fields.general_dimensions %}
+      <p class="pdp-dimensions-measurements-item">
+        <span class="pdp-dimensions-measurements-item-title">General Dimensions</span>
+        <span class="pdp-dimensions-measurements-item-copy">{{product.metafields.my_fields.general_dimensions}}</span>
+      </p>
+      {%endif%}
+      
+      {%if product.metafields.my_fields.sit_depth %}
+      <p class="pdp-dimensions-measurements-item">
+        <span class="pdp-dimensions-measurements-item-title Sit Depth">Sit Depth</span>
+        <span class="pdp-dimensions-measurements-item-copy Sit Depth">{{product.metafields.my_fields.sit_depth}}</span>
+      </p>
+      {%endif%}
+      {%if product.metafields.my_fields.sit_height %}
+      <p class="pdp-dimensions-measurements-item">
+        <span class="pdp-dimensions-measurements-item-title Sit Depth">Sit Height</span>
+        <span class="pdp-dimensions-measurements-item-copy Sit Depth">{{product.metafields.my_fields.sit_height}}</span>
+      </p>
+      {%endif%}
+      {%if product.metafields.my_fields.leg_height %}
+      <p class="pdp-dimensions-measurements-item">
+        <span class="pdp-dimensions-measurements-item-title Sit Depth">Leg Height</span>
+        <span class="pdp-dimensions-measurements-item-copy Sit Depth">{{product.metafields.my_fields.leg_height}}</span>
+      </p>
+      {%endif%}
+      
+      {%if product.metafields.my_fields.opt_ottoman_add_on %}
+      <p class="pdp-dimensions-measurements-item">
+        <span class="pdp-dimensions-measurements-item-title Sit Depth">Opt. Ottoman Add-On </span>
+        <span class="pdp-dimensions-measurements-item-copy Sit Depth">{{product.metafields.my_fields.opt_ottoman_add_on}}</span>
+      </p>
+      {%endif%}
+
+    </div>
+    {%if section.settings.product_dimensions_image  %}
+    <div class="pdp-dimensions-image-item  lazyload">
+      <img src="https://media.graphcms.com/resize=w:800,fit:crop/output=format:webp/compress/eFXqwkNT8Xkt8jLivxwg" />
+    </div>
+    {%endif%}
+
+  </div>
+</section>
+
+{% schema %}
+  {
+    "name": "Product Dimensions",
+    "settings": [
+	{
+	"id": "product_dimensions_image",
+    "type": "image_picker",
+	"label": "Product Dimensions Image"
+	},
+    {
+    "id": "general_dimensions",
+    "type": "text",
+    "label": "General Dimensions" 
+    },
+    {
+    "id": "sit_depth",
+    "type": "text",
+    "label": "Sit Depth" 
+    },
+    {
+    "id": "sit_height",
+    "type": "text",
+    "label": "Sit Height" 
+    },
+    {
+    "id": "leg_height",
+    "type": "text",
+    "label": "Leg Height" 
+    },
+    {
+    "id": "opt_ottoman_add_on",
+    "type": "text",
+    "label": "Opt Ottoman Add On" 
+    }
+]
+  }
+{% endschema %}
+
+{% stylesheet %}
+
+.pdp-btf-section-wrapper {
+  display: grid ;
+  align-items: center;
+  gap: 3rem;
+}
+.pdp-dimensions-image-item {
+    display:flex;
+	align-items: center;
+    align-content: center;
+    justify-content: center;
+}
+.pdp-dimensions-image {
+	width: 100%;
+	height: 100%;
+}
+.pdp-dimensions-measurements {
+  order: 2;
+  display: table;
+  display: flex;
+  flex-direction: column;
+  padding: 0rem 1rem;
+  border-collapse: collapse;
+  width: 100%
+}
+.pdp-dimensions-measurements-item-copy,
+.pdp-dimensions-measurements-item-title {
+  display: table-cell;
+  width: 50%;
+  line-height: 24px;
+  padding: 0.4rem 0;
+}
+.pdp-dimensions-measurements-item {
+  display: flex;
+  border-bottom: 1px solid #a3a2a1;
+}
+.pdp-dimensions-measurements-item-copy {
+  color: #767472;
+}
+
+@media only screen and (min-width: 1023px) {
+	.pdp-btf-section-wrapper {
+		grid-template-columns: 1fr 1fr;
+	}
+	.pdp-dimensions-measurements {
+		order: 1;
+	}
+}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
